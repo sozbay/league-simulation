@@ -201,14 +201,14 @@ class LeagueController extends Controller
     private function calculateMatchScore($teamStrength, $fanPower, $opponentStrength)
     {
         $baseScore = rand(1, 7);
-        $scoreChange = (($teamStrength + $fanPower) * 0.4 - ($opponentStrength) * 0.2);
+        $scoreChange = (($teamStrength + $fanPower) * 0.4 - ($opponentStrength) * 0.2) / 2;
 
-        return rand(1, min(10, $baseScore + $scoreChange));
+        return rand(1, min(7, $baseScore + $scoreChange));
     }
 
     private function calculateChampionshipOdds()
     {
-        $teams = Team::orderBy('points', 'desc')->get();
+        $teams = Team::orderBy('points', 'desc')->orderByRaw('(goals_for - goals_against) DESC')->get();
         $totalPoints = $teams->sum('points');
 
         $championshipOdds = [];

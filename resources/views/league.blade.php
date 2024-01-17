@@ -58,18 +58,31 @@
                     <button type="submit" class="btn btn-danger">Reset Data</button>
                 </form>
             </div>
+            @if($currentWeek > 1)
             <div class="row">
                 <div class="col-md-12">
                     <h2>Match Results</h2>
-                    <ul>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Week</th>
+                            <th scope="col">Teams and Score</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @foreach($matches as $match)
-                            <br>{{$match->week}}. Week<br>
-                            <li>{{ $match->homeTeam->name }} {{ $match->home_team_goals }}
-                                - {{ $match->away_team_goals }} {{ $match->awayTeam->name}}</li>
+
+                            <tr>
+                                <td>{{$match->week}}. Week</td>
+                            <td>{{ $match->homeTeam->name }} {{ $match->home_team_goals }}
+                                - {{ $match->away_team_goals }} {{ $match->awayTeam->name}}</td>
+                            </tr>
                         @endforeach
-                    </ul>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            @endif
         </div>
         @if($currentWeek > 4)
             <div class="col-md-4">
