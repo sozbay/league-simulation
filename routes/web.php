@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LeagueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return redirect('/league');
 });
+
+Route::get('/league', [LeagueController::class, 'showLeague']);
+Route::get('/simulate-week', [LeagueController::class, 'simulateWeek']);
+Route::get('/simulate-all-week', [LeagueController::class, 'simulateAllWeek']);
+Route::get('/reset-data', [LeagueController::class, 'resetData']);

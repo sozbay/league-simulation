@@ -37,26 +37,6 @@ class TeamsTableSeeder extends Seeder
                     'name' => 'Trabzonspor',
                     'strength' => '75',
                     'fan_power' => '85'
-                ],
-                [
-                    'name' => 'Trabzonspor2',
-                    'strength' => '75',
-                    'fan_power' => '85'
-                ],
-                [
-                    'name' => 'Trabzonspor3',
-                    'strength' => '75',
-                    'fan_power' => '85'
-                ],
-                [
-                    'name' => 'Trabzonspor4',
-                    'strength' => '75',
-                    'fan_power' => '85'
-                ],
-                [
-                    'name' => 'Trabzonspor5',
-                    'strength' => '75',
-                    'fan_power' => '85'
                 ]
             ]);
         }
